@@ -5,4 +5,4 @@ export type IntervalParams = {
   exact?: boolean;
 };
 
-export type TimerState = 'idle' | 'active' | 'paused';
+export type TimerState = 'idle' | 'active' | 'paused' | 'disposed';

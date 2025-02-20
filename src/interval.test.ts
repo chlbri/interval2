@@ -2,10 +2,6 @@ import { createInterval } from './interval';
 import { createIntervalTest } from './interval.fixtures';
 
 describe('IntervalTimer', () => {
-  beforeAll(() => {
-    vi.useFakeTimers();
-  });
-
   describe('#1 => default values, with exact "true"', () => {
     const { start, checkInterval, advance, pause } = createIntervalTest({
       id: 'test',
@@ -273,5 +269,57 @@ describe('IntervalTimer', () => {
         expect(interval.exact).toBe(false);
       });
     });
+  });
+
+  describe('#4 => dispose', () => {
+    const { start, interval, checkInterval, advance, pause } =
+      createIntervalTest({
+        id: 'dispose',
+      });
+
+    const disposedConfig = {
+      interval: 100,
+      id: 'dispose',
+      state: 'disposed',
+      callTimes: 10,
+    } as const;
+
+    test(...start());
+
+    describe(
+      ...checkInterval({
+        interval: 100,
+        id: 'dispose',
+        state: 'active',
+      }),
+    );
+
+    test(...advance(10, 2));
+
+    describe(
+      ...checkInterval(
+        {
+          interval: 100,
+          id: 'dispose',
+          state: 'active',
+          callTimes: 10,
+        },
+        3,
+      ),
+    );
+
+    test('#04 => dispose', interval[Symbol.asyncDispose].bind(interval));
+
+    describe(...checkInterval(disposedConfig, 5));
+
+    test(...pause(6));
+
+    test(...advance(10, 7));
+
+    describe(...checkInterval(disposedConfig, 8));
+
+    test(...start(9));
+
+    describe(...checkInterval(disposedConfig, 10));
   });
 });

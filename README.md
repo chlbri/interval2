@@ -1,6 +1,72 @@
-# Beatifull lib
+# Interval2
 
-A beautifull description
+<br/>
+
+A cancellable interval library for Node.js that allows you to create
+intervals that can be easily started, paused, and renewed. This library
+provides enhanced control over interval execution, making it suitable for
+various timing-related tasks in your applications.
+
+<br/>
+
+## Installation
+
+```bash
+# Using npm
+npm install @bemedev/interval2
+```
+
+```bash
+# Using bun
+bun add @bemedev/interval2
+```
+
+```bash
+# Using pnpm
+pnpm add @bemedev/interval2
+```
+
+```bash
+# Using yarn
+yarn add @bemedev/interval2
+```
+
+<br/>
+
+## Usage
+
+```typescript
+import { createInterval } from '@bemedev/interval2';
+
+const interval = createInterval({
+  interval: 1000,
+  callback: () => {
+    console.log('Interval executed');
+  },
+});
+
+// Start the interval
+interval.start();
+
+// Pause the interval
+interval.pause();
+
+// Renew the interval with new settings
+interval.renew({ interval: 2000 });
+
+//dispose the interval
+interval.dispose();
+```
+
+<br/>
+
+## Features
+
+- Start and pause and dispose intervals
+- Renew intervals with new settings
+- 100% coverage
+- Integration with CI/CD pipeline
+- Improved performance for interval execution
 
 <br/>
 
@@ -8,23 +74,38 @@ A beautifull description
 
 MIT
 
+<br/>
+
 ## CHANGE_LOG
 
 <details>
 
 <summary>
-...
+View changes log
 </summary>
 
-### Version [0.0.1] --> _date & hour_
+### Version [0.1.0] --> _15:00_
 
-- ✨ Première version de la bibliothèque
+- ✨ First version of library
+- Added basic interval functionality
+- Implemented start and stop methods
+- Included error handling for invalid intervals
+- Provided documentation for usage
+- Added unit tests for core features
+- Integrated with CI/CD pipeline
+- Improved performance for interval execution
+- 100% coverage
+- Fixed bugs related to interval overlap
+- Enhanced logging for debugging purposes
+- Updated dependencies to latest versions
+
+<br/>
 
 </details>
 
 <br/>
 
-## Auteur
+## Author
 
 chlbri (bri_lvi@icloud.com)
 
@@ -34,6 +115,6 @@ chlbri (bri_lvi@icloud.com)
 
 <br/>
 
-## Liens
+## Links
 
-- [Documentation](https://github.com/chlbri/new-package)
+- [Documentation](https://github.com/chlbri/interval2)

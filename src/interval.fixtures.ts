@@ -1,4 +1,3 @@
-import sleep from '@bemedev/sleep';
 import { createInterval } from './interval';
 import type { IntervalParams, TimerState } from './types.types';
 
@@ -73,10 +72,7 @@ export const createIntervalTest = (
       times > 1 ? 's' : ''
     }`;
     const callback = () => {
-      if (vi.isFakeTimers()) {
-        return vi.advanceTimersByTime(interval2.interval * times);
-      }
-      return sleep(interval2.interval * times);
+      return vi.advanceTimersByTime(interval2.interval * times);
     };
 
     return [invite, callback] as const;
@@ -85,6 +81,10 @@ export const createIntervalTest = (
   afterAll(() => {
     callback.mockClear();
     interval2.pause();
+  });
+
+  beforeAll(() => {
+    vi.useFakeTimers();
   });
 
   return {

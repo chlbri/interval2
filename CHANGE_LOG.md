@@ -1,15 +1,30 @@
 ## CHANGELOG
 
-<br/>
-<br/>
-
-### Version [0.0.1] --> _date & hour_
-
-- ✨ Première version de la bibliothèque
+This changelog provides a detailed overview of the updates and improvements
+made to the interval2 library. Each version includes a summary of new
+features, bug fixes, and other changes to help users understand the
+evolution of the library.
 
 <br/>
 
-## Auteur
+### Version [0.1.0] --> _15:00_
+
+- ✨ First version of library
+- Added basic interval functionality
+- Implemented start and stop methods
+- Included error handling for invalid intervals
+- Provided documentation for usage
+- Added unit tests for core features
+- Integrated with CI/CD pipeline
+- 100% coverage
+- Improved performance for interval execution
+- Fixed bugs related to interval overlap
+- Enhanced logging for debugging purposes
+- Updated dependencies to latest versions
+
+<br/>
+
+## Author
 
 chlbri (bri_lvi@icloud.com)
 
@@ -19,6 +34,6 @@ chlbri (bri_lvi@icloud.com)
 
 <br/>
 
-## Liens
+## Links
 
-- [Documentation](https://github.com/chlbri/new-package)
+- [Documentation](https://github.com/chlbri/interval2)

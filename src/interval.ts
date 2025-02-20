@@ -103,12 +103,19 @@ class Interval2 {
     this.#state = 'paused';
   }
 
-  [Symbol.asyncDispose] = () => {
+  dispose = () => {
     if (this.#timerId) clearInterval(this.#timerId);
+    this.#ticks = 0;
+    this.#startTime = 0;
+    this.#remaining = 0;
+    this.#state = 'disposed';
+    this.#timerId = undefined;
   };
 
-  [Symbol.dispose] = () => {
-    if (this.#timerId) clearInterval(this.#timerId);
+  [Symbol.dispose] = this.dispose;
+
+  [Symbol.asyncDispose] = async () => {
+    return this[Symbol.dispose]();
   };
 }
 
