@@ -98,7 +98,6 @@ class Interval2 {
     if (this.#timerId) clearInterval(this.#timerId);
     this.#remaining =
       Date.now() - this.#ticks * this.#interval - this.#startTime;
-    console.log('this.#remaining', '=>', this.#remaining);
 
     this.#state = 'paused';
   }

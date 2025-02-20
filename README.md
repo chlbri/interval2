@@ -84,6 +84,12 @@ MIT
 View changes log
 </summary>
 
+<br/>
+
+### Version [0.1.1] --> _15:10_
+
+- Remove console.log
+
 ### Version [0.1.0] --> _15:00_
 
 - ✨ First version of library

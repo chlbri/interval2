@@ -7,6 +7,12 @@ evolution of the library.
 
 <br/>
 
+### Version [0.1.1] --> _15:10_
+
+- Remove console.log
+
+<br/>
+
 ### Version [0.1.0] --> _15:00_
 
 - ✨ First version of library
