@@ -1,6 +1,6 @@
 {
   "name": "@bemedev/interval2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A cancellable interval and timer library for JavaScript and TypeScript.",
   "author": {
     "email": "bri_lvi@icloud.com",

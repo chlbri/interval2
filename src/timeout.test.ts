@@ -311,7 +311,5 @@ describe('#01 => Timeout2', () => {
         expect(renewedTimeout.timeout).toBe(1000);
       });
     });
-
-    
   });
 });

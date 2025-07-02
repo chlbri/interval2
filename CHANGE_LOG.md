@@ -7,6 +7,12 @@ evolution of the library.
 
 <br/>
 
+### Version [0.1.3] --> **2025/07/02** _02:20_
+
+- fix: Remove all console.log
+
+<br/>
+
 ### Version [0.1.2] --> **2025/07/02** _01:50_
 
 - feat(timeout): Add new Timeout2 class with pause and stop capabilities

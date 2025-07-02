@@ -78,8 +78,6 @@ class Interval2 {
   start = async () => {
     if (this.#canStart) {
       const check = this.#state === 'paused' && this.#exact === false;
-      console.log('exact', this.#exact);
-      console.log('check', check);
 
       if (check) await sleep(this.#remaining);
       this.#build();
