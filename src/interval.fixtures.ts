@@ -25,9 +25,22 @@ export const createIntervalTest = (
     return [invite, callback] as const;
   };
 
+  const resume = start;
+
   const pause = (index = 0) => {
     const invite = `#${index >= 10 ? index : '0' + index} => Pause the Interval`;
-    const callback = () => interval2.pause();
+    return [invite, interval2.pause] as const;
+  };
+
+  const ticks = (times: number, index = 0) => {
+    const invite = `#${index >= 10 ? index : '0' + index} => Ticks the Interval ${times} time${
+      times > 1 ? 's' : ''
+    }`;
+
+    const callback = () => {
+      expect(interval2.ticks).toBe(times);
+    };
+
     return [invite, callback] as const;
   };
 
@@ -93,5 +106,7 @@ export const createIntervalTest = (
     pause,
     checkInterval,
     advance,
+    resume,
+    ticks,
   };
 };

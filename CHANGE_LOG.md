@@ -7,6 +7,22 @@ evolution of the library.
 
 <br/>
 
+### Version [0.1.2] --> **2025/07/02** _01:50_
+
+- feat(timeout): Add new Timeout2 class with pause and stop capabilities
+- feat(types): Add TimeoutParams type for timeout configuration
+- docs: Add TIMEOUT_EXAMPLES.md with detailed usage examples
+- docs: Update README.md to include Timeout2 documentation
+- feat(timeout): Implement pause/resume functionality with remaining time
+  calculation
+- feat(timeout): Add stop method for complete timeout cancellation
+- feat(timeout): Support Symbol.dispose and Symbol.asyncDispose for
+  resource management
+- feat(timeout): Add renew method for creating new timeout instances with
+  updated config like Interval2
+
+<br/>
+
 ### Version [0.1.1] --> _15:10_
 
 - Remove console.log

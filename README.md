@@ -1,11 +1,11 @@
-# Interval2
+# Interval2 & Timeout2
 
 <br/>
 
-A cancellable interval library for Node.js that allows you to create
-intervals that can be easily started, paused, and renewed. This library
-provides enhanced control over interval execution, making it suitable for
-various timing-related tasks in your applications.
+A cancellable interval and timeout library for Node.js that allows you to
+create intervals and timeouts that can be easily started, paused, and
+renewed. This library provides enhanced control over timing execution,
+making it suitable for various timing-related tasks in your applications.
 
 <br/>
 
@@ -35,10 +35,13 @@ yarn add @bemedev/interval2
 
 ## Usage
 
+### Interval2
+
 ```typescript
 import { createInterval } from '@bemedev/interval2';
 
 const interval = createInterval({
+  id: 'my-interval',
   interval: 1000,
   callback: () => {
     console.log('Interval executed');
@@ -58,15 +61,47 @@ interval.renew({ interval: 2000 });
 interval.dispose();
 ```
 
+### Timeout2
+
+```typescript
+import { createTimeout } from '@bemedev/interval2';
+
+const timeout = createTimeout({
+  id: 'my-timeout',
+  callback: () => {
+    console.log('Timeout executed');
+  },
+  timeout: 2000, // 2 seconds
+});
+
+// Start the timeout
+await timeout.start();
+
+// Pause the timeout (preserves remaining time)
+timeout.pause();
+
+// Resume the timeout
+await timeout.start();
+
+// Stop the timeout completely
+timeout.stop();
+```
+
 <br/>
 
 ## Features
 
-- Start and pause and dispose intervals
-- Renew intervals with new settings
-- 100% coverage
+- **Interval2**: Repeating execution with start, pause, and dispose
+  capabilities
+- **Timeout2**: Single execution with pause, resume, and stop capabilities
+- Start, pause and dispose intervals and timeouts
+- Renew intervals and timeouts with new settings
+- State management ('idle', 'active', 'paused', 'disposed')
+- Resource management with Symbol.dispose support
+- 100% test coverage
 - Integration with CI/CD pipeline
-- Improved performance for interval execution
+- TypeScript support
+- Improved performance for timing execution
 
 <br/>
 

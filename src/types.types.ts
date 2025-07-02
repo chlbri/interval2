@@ -5,4 +5,10 @@ export type IntervalParams = {
   exact?: boolean;
 };
 
+export type TimeoutParams = {
+  id: string;
+  callback: () => void;
+  timeout?: number;
+};
+
 export type TimerState = 'idle' | 'active' | 'paused' | 'disposed';

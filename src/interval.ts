@@ -42,6 +42,10 @@ class Interval2 {
     return this.#exact;
   }
 
+  get ticks() {
+    return this.#ticks;
+  }
+
   get #canStart() {
     return this.#state === 'idle' || this.#state === 'paused';
   }
@@ -55,9 +59,9 @@ class Interval2 {
   }
   // #endregion
 
-  renew = (config?: Partial<IntervalParams>) => {
+  renew = (config?: Partial<Omit<IntervalParams, 'callback'>>) => {
     const id = config?.id || this.#id;
-    const callback = config?.callback || this.#callback;
+    const callback = this.#callback;
     const interval = config?.interval || this.#interval;
     const exact = config?.exact || this.#exact;
 
@@ -74,37 +78,39 @@ class Interval2 {
   start = async () => {
     if (this.#canStart) {
       const check = this.#state === 'paused' && this.#exact === false;
+      console.log('exact', this.#exact);
+      console.log('check', check);
 
       if (check) await sleep(this.#remaining);
       this.#build();
     }
   };
 
+  resume = this.start;
+
   #build = () => {
     const callback = () => {
       this.#callback();
-      ++this.#ticks;
+      this.#ticks = this.#ticks + 1;
     };
 
     this.#timerId = setInterval(callback, this.#interval);
 
     this.#startTime = Date.now();
-    this.#ticks = 0;
     this.#state = 'active';
   };
 
-  pause() {
+  pause = () => {
     if (this.#state !== 'active') return;
     if (this.#timerId) clearInterval(this.#timerId);
     this.#remaining =
       Date.now() - this.#ticks * this.#interval - this.#startTime;
 
     this.#state = 'paused';
-  }
+  };
 
   dispose = () => {
     if (this.#timerId) clearInterval(this.#timerId);
-    this.#ticks = 0;
     this.#startTime = 0;
     this.#remaining = 0;
     this.#state = 'disposed';
