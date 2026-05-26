@@ -78,6 +78,7 @@ class Timeout2 {
       this.#callback();
       this.#state = 'disposed';
       this.#timerId = undefined;
+      console.log(`Timeout "${this.#id}" completed.`);
     };
 
     this.#timerId = setTimeout(callback, this.#remaining);
@@ -94,7 +95,7 @@ class Timeout2 {
     this.#state = 'paused';
   };
 
-  stop = () => {
+  dispose = () => {
     if (this.#timerId) clearTimeout(this.#timerId);
 
     this.#startTime = 0;
@@ -103,9 +104,6 @@ class Timeout2 {
     this.#timerId = undefined;
   };
 
-  dispose = () => {
-    this.stop();
-  };
 
   [Symbol.dispose] = this.dispose;
 

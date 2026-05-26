@@ -1,12 +1,12 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createTimeout } from './timeout';
 
 describe('#01 => Timeout2', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     vi.useFakeTimers();
   });
 
-  describe('0#1 => timeout creation', () => {
+  describe('#01 => timeout creation', () => {
     const callback = vi.fn();
     const timeout = createTimeout({
       id: 'test-timeout',
@@ -52,7 +52,7 @@ describe('#01 => Timeout2', () => {
     });
 
     it('#04 => Advance to timeout ms', () => {
-      vi.advanceTimersByTime(500);
+      vi.runAllTimers();
     });
 
     it('#05 => should call callback one times after timeout', () => {
@@ -143,7 +143,7 @@ describe('#01 => Timeout2', () => {
       expect(timeout.state).toBe('active');
     });
 
-    it('#03 => should stop the timeout', timeout.stop);
+    it('#03 => should stop the timeout', timeout.dispose);
 
     it('#04 => should have disposed state after stopping', () => {
       expect(timeout.state).toBe('disposed');
@@ -267,9 +267,9 @@ describe('#01 => Timeout2', () => {
       expect(timeout.state).toBe('idle');
     });
 
-    it('#03 => should stop the timeout', timeout.stop);
+    it('#03 => should dispose the timeout', timeout.dispose);
 
-    it('#04 => should have disposed state after stopping', () => {
+    it('#04 => should have disposed state after disposal', () => {
       expect(timeout.state).toBe('disposed');
     });
 
