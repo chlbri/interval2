@@ -7,6 +7,30 @@ evolution of the library.
 
 <br/>
 
+<details>
+<summary>
+
+## **[1.0.0] - 26/05/2026** => _14:57_
+
+</summary>
+
+- feat(build): Replace Rollup with Rolldown for improved build performance
+- feat(linting): Migrate from ESLint + Prettier to OxLint + OxFmt for
+  faster linting
+- feat(devcontainer): Add Node.js library development container
+  configuration
+- feat(ci): Enhance CI process with improved timing and reporting
+- feat(test): Add new test configuration options with type checking
+- fix: Standardize import quotes and formatting across the codebase
+- refactor: Standardize quote style to single quotes across all files
+- chore(deps): Update dependencies including Vite 6.1.1 → 6.3.4,
+  @types/node 24.0.10 → 25.9.1
+- <u>Test coverage **_100%_**</u>
+
+</details>
+
+<br/>
+
 ### Version [0.1.3] --> **2025/07/02** _02:20_
 
 - fix: Remove all console.log
