@@ -1,11 +1,11 @@
-import { type VitestUtils, it, expect } from 'vitest';
-import type { IntervalParams, TimerState } from './types.types';
+import { type VitestUtils, it, expect } from "vitest";
+import type { IntervalParams, TimerState } from "./types.types";
 
 class Interval2 {
   // #region Variables
   #timerId: NodeJS.Timeout | undefined = undefined;
   readonly #interval: number;
-  #state: TimerState = 'idle';
+  #state: TimerState = "idle";
   #remaining!: number;
   #startTime!: number;
   #ticks = 0;
@@ -14,12 +14,7 @@ class Interval2 {
   readonly #id: string;
   // #endregion
 
-  private constructor({
-    callback,
-    id,
-    interval = 100,
-    exact,
-  }: IntervalParams) {
+  private constructor({ callback, id, interval = 100, exact }: IntervalParams) {
     this.callback = callback;
     this.#interval = interval;
     this.#id = id;
@@ -47,7 +42,7 @@ class Interval2 {
   }
 
   get #canStart() {
-    return this.#state === 'idle' || this.#state === 'paused';
+    return this.#state === "idle" || this.#state === "paused";
   }
 
   get state() {
@@ -59,7 +54,7 @@ class Interval2 {
   }
   // #endregion
 
-  renew = (config?: Partial<Omit<IntervalParams, 'callback'>>) => {
+  renew = (config?: Partial<Omit<IntervalParams, "callback">>) => {
     const id = config?.id || this.#id;
     const callback = this.callback;
     const interval = config?.interval || this.#interval;
@@ -77,7 +72,7 @@ class Interval2 {
 
   start = () => {
     if (this.#canStart) {
-      const check = this.#state === 'paused' && this.#exact === false;
+      const check = this.#state === "paused" && this.#exact === false;
 
       if (check) {
         setTimeout(this.#build, this.#remaining);
@@ -96,23 +91,23 @@ class Interval2 {
     this.#timerId = setInterval(callback, this.#interval);
 
     this.#startTime = Date.now();
-    this.#state = 'active';
+    this.#state = "active";
   };
 
   pause = () => {
-    if (this.#state !== 'active') return;
+    if (this.#state !== "active") return;
     clearInterval(this.#timerId);
     this.#remaining =
       Date.now() - this.#ticks * this.#interval - this.#startTime;
 
-    this.#state = 'paused';
+    this.#state = "paused";
   };
 
   dispose = () => {
     clearInterval(this.#timerId);
     this.#startTime = 0;
     this.#remaining = 0;
-    this.#state = 'disposed';
+    this.#state = "disposed";
     this.#timerId = undefined;
   };
 
@@ -136,12 +131,12 @@ export const createInterval = Interval2.create;
 
 export const testInterval = (interval2: Interval2, vi: VitestUtils) => {
   let _index = 0;
-  const callback = vi.spyOn(interval2, 'callback');
+  const callback = vi.spyOn(interval2, "callback");
 
   const formatN = () => {
     const index = _index;
     _index++;
-    return index >= 10 ? index : '0' + index;
+    return index >= 10 ? index : "0" + index;
   };
 
   const start = () => {
@@ -158,7 +153,7 @@ export const testInterval = (interval2: Interval2, vi: VitestUtils) => {
 
   const ticks = (times = 1) => {
     const invite = `#${formatN()} => Ticks the Interval ${times} time${
-      times > 1 ? 's' : ''
+      times > 1 ? "s" : ""
     }`;
 
     const callback = () => {
@@ -185,23 +180,23 @@ export const testInterval = (interval2: Interval2, vi: VitestUtils) => {
   }: ParamTests) => {
     const invite = `#${formatN()} => Check the Interval`;
     const out = () => {
-      it.runIf(id)('#01 => check id', () => {
+      it.runIf(id)("#01 => check id", () => {
         expect(interval2.id).toBe(id);
       });
 
-      it.runIf(state)('#02 => check state', () => {
+      it.runIf(state)("#02 => check state", () => {
         expect(interval2.state).toBe(state);
       });
 
-      it.runIf(interval)('#03 => check interval', () => {
+      it.runIf(interval)("#03 => check interval", () => {
         expect(interval2.interval).toBe(interval);
       });
 
-      it.runIf(exact)('#04 => check exact option', () => {
+      it.runIf(exact)("#04 => check exact option", () => {
         expect(interval2.exact).toBe(exact);
       });
 
-      it.runIf(callTimes)('#05 => check callback', () => {
+      it.runIf(callTimes)("#05 => check callback", () => {
         expect(callback).toHaveBeenCalledTimes(callTimes!);
       });
     };
@@ -211,7 +206,7 @@ export const testInterval = (interval2: Interval2, vi: VitestUtils) => {
 
   const advanceTimes = (times = 1) => {
     const invite = `#${formatN()} => Wait for ${times} tick${
-      times > 1 ? 's' : ''
+      times > 1 ? "s" : ""
     }`;
     const callback = () => {
       return vi.advanceTimersByTime(interval2.interval * times);
