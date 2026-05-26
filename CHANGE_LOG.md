@@ -10,6 +10,21 @@ evolution of the library.
 <details>
 <summary>
 
+## **[1.0.1] - 26/05/2026** => _15:08_
+
+</summary>
+
+- chore(build): Clean up rolldown configuration by removing empty plugins
+  array
+- <u>Test coverage **_100%_**</u>
+
+</details>
+
+<br/>
+
+<details>
+<summary>
+
 ## **[1.0.0] - 26/05/2026** => _14:57_
 
 </summary>
