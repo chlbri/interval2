@@ -121,6 +121,10 @@ View changes log
 
 <br/>
 
+### Version [1.1.4] - 30/07/2026 --> _14:41_
+
+- refactor: Extract `testInterval` helper from `interval.ts` into `interval.fixtures.ts`
+
 ### Version [1.1.3] - 30/07/2026 --> _14:37_
 
 - refactor(tsconfig): Standardize tsconfig configuration across monorepo packages

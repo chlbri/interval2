@@ -7,6 +7,19 @@ This changelog provides a detailed overview of the updates and improvements made
 <details>
 <summary>
 
+## **[1.1.4] - 30/07/2026** => _14:41_
+
+</summary>
+
+- Refactor: Extract `testInterval` helper from `interval.ts` into `interval.fixtures.ts` to trim production bundle dependencies
+
+</details>
+
+<br/>
+
+<details>
+<summary>
+
 ## **[1.1.3] - 30/07/2026** => _14:37_
 
 </summary>
