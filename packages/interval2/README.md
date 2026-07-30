@@ -121,6 +121,18 @@ View changes log
 
 <br/>
 
+### Version [1.1.3] - 30/07/2026 --> _14:37_
+
+- refactor(tsconfig): Standardize tsconfig configuration across monorepo packages
+
+### Version [1.1.2] - 30/07/2026 --> _14:34_
+
+- fix(package): Exclude lib/node_modules directory from published package files
+
+### Version [1.1.1] - 30/07/2026 --> _14:30_
+
+- chore(deps): Add tslib dependency
+
 ### Version [1.1.0] - 30/07/2026 --> _14:02_
 
 - refactor: Reorganize codebase into a pnpm monorepo structure
