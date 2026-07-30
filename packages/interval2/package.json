@@ -1,0 +1,79 @@
+{
+  "name": "@bemedev/interval2",
+  "version": "1.1.0",
+  "description": "A cancellable interval and timer library for JavaScript and TypeScript.",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "author": {
+    "email": "bri_lvi@icloud.com",
+    "name": "chlbri",
+    "url": "https://bemedev.vercel.app"
+  },
+    "homepage": "https://github.com/chlbri/interval2/blob/master/packages/interval2/README.md",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chlbri/interval2"
+  },
+  "maintainers": [
+    {
+      "email": "bri_lvi@icloud.com",
+      "name": "chlbri",
+      "url": "https://bemedev.vercel.app"
+    }
+  ],
+  "contributors": [
+    {
+      "email": "bri_lvi@icloud.com",
+      "name": "chlbri",
+      "url": "https://bemedev.vercel.app"
+    }
+  ],
+  "keywords": [
+    "timer",
+    "interval",
+    "cancellable",
+    "time"
+  ],
+  "scripts": {
+    "build": "pnpm run rm:lib && pnpm run rolldown",
+    "rm:lib": "pnpx rimraf ./lib",
+    "test": "vitest run",
+    "fmt": "oxfmt",
+    "lint": "oxlint --fix && pnpm run fmt",
+    "pretest": "pnpm run build && pnpm run size",
+    "posttest": "exit 0",
+    "test:only": "pnpm run test --no-coverage",
+    "_ci": "pnpm run lint && pnpm run test",
+    "size": "size-limit",
+    "rolldown": "rolldown -c"
+  },
+  "dependencies": {
+    "@bemedev/sleep": "^0.2.2"
+  },
+  "devDependencies": {
+    "@bemedev/dev-utils": "^1.1.1",
+    "rolldown": "^1.2.1",
+    "typescript": "^7.0.2",
+    "vitest": "4.1.10"
+  },
+  "size-limit": [
+    {
+      "path": "lib/**/*.js",
+      "limit": "10kb"
+    },
+    {
+      "path": "lib/**/*.d.ts",
+      "limit": "10kb"
+    },
+    {
+      "path": "lib/**/*.cjs",
+      "limit": "10 kb"
+    }
+  ]
+}

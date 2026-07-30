@@ -111,6 +111,67 @@ MIT
 
 <br/>
 
+## CHANGE_LOG
+
+<details>
+
+<summary>
+View changes log
+</summary>
+
+<br/>
+
+### Version [1.1.0] - 30/07/2026 --> _14:02_
+
+- refactor: Reorganize codebase into a pnpm monorepo structure
+- feat(workspace): Add pnpm monorepo workspace configuration
+- update(deps): Add `@bemedev/sleep` dependency to `@bemedev/interval2`
+- update(ci): Update GitHub Actions workflow for NPM publishing from monorepo package
+
+### Version [1.0.1] - 26/05/2026 --> _15:08_
+
+- Clean up rolldown configuration by removing empty plugins array
+
+### Version [1.0.0] - 26/05/2026 --> _14:57_
+
+- Replace Rollup with Rolldown for improved build performance
+- Migrate from ESLint + Prettier to OxLint + OxFmt for faster linting
+- Add Node.js library development container configuration
+- Enhance CI process with improved timing and reporting
+
+### Version [0.1.3] --> _02:20_
+
+- fix: Remove all console.log
+
+### Version [0.1.2] --> _01:50_
+
+- feat(timeout): Add new Timeout2 class with pause and stop capabilities
+- feat(types): Add TimeoutParams type for timeout configuration
+
+### Version [0.1.1] --> _15:10_
+
+- Remove console.log
+
+### Version [0.1.0] --> _15:00_
+
+- ✨ First version of library
+- Added basic interval functionality
+- Implemented start and stop methods
+- Included error handling for invalid intervals
+- Provided documentation for usage
+- Added unit tests for core features
+- Integrated with CI/CD pipeline
+- Improved performance for interval execution
+- Fixed bugs related to interval overlap
+- Enhanced logging for debugging purposes
+- Updated dependencies to latest versions
+
+<br/>
+
+</details>
+
+<br/>
+
 ## Author
 
 chlbri (bri_lvi@icloud.com)

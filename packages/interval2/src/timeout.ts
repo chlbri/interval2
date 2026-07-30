@@ -47,11 +47,7 @@ class Timeout2 {
     const callback = this.#callback;
     const timeout = config?.timeout || this.#timeout;
 
-    const out = new Timeout2({
-      id,
-      callback,
-      timeout,
-    });
+    const out = new Timeout2({ id, callback, timeout });
 
     return out;
   };

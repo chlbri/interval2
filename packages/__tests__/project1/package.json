@@ -1,0 +1,19 @@
+{
+  "name": "project1",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "fmt": "oxfmt",
+    "lint": "oxlint --fix && pnpm run fmt",
+    "posttest": "exit 0",
+    "test:only": "vitest run --no-coverage",
+    "_ci": "pnpm run lint && pnpm run test"
+  },
+  "devDependencies": {
+    "@bemedev/dev-utils": "^1.1.1",
+    "@bemedev/interval2": "workspace:^",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}

@@ -1,4 +1,11 @@
+packages:
+  - 'packages/interval2'
+  - 'packages/__tests__/project1'
+
 allowBuilds:
   esbuild: true
-onlyBuiltDependencies:
-  - esbuild
+
+minimumReleaseAge: 300
+
+minimumReleaseAgeExclude:
+  - '@bemedev/*'

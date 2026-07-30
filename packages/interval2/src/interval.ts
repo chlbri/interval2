@@ -65,12 +65,7 @@ class Interval2 {
     const interval = config?.interval || this.#interval;
     const exact = config?.exact || this.#exact;
 
-    const out = new Interval2({
-      id,
-      callback,
-      interval,
-      exact,
-    });
+    const out = new Interval2({ id, callback, interval, exact });
 
     return out;
   };

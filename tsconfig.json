@@ -1,13 +1,10 @@
 {
-  "include": ["src/**/*"],
   "compilerOptions": {
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     "target": "ESNext",
     "declaration": true,
     "sourceMap": true,
-    "rootDir": "./src",
-    "outDir": "./lib",
     "resolveJsonModule": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -16,12 +13,13 @@
     "noUnusedParameters": true,
     "moduleResolution": "Bundler",
     "types": ["vitest/globals", "node"],
-    "jsx": "react",
+    "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "noEmit": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "paths": {}
   }
 }

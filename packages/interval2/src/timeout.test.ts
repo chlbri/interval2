@@ -8,10 +8,7 @@ describe('#01 => Timeout2', () => {
 
   describe('#01 => timeout creation', () => {
     const callback = vi.fn();
-    const timeout = createTimeout({
-      id: 'test-timeout',
-      callback,
-    });
+    const timeout = createTimeout({ id: 'test-timeout', callback });
     it('#01 => should create a timeout with correct id', () => {
       expect(timeout.id).toBe('test-timeout');
     });

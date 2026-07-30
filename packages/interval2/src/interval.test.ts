@@ -4,10 +4,7 @@ import { createIntervalTest } from './interval.fixtures';
 describe('IntervalTimer', () => {
   describe('#01 => default values, with exact "true"', () => {
     const { start, checkInterval, advanceTimes, pause } =
-      createIntervalTest({
-        id: 'test',
-        exact: true,
-      });
+      createIntervalTest({ id: 'test', exact: true });
 
     describe(...checkInterval({ exact: true }));
 
@@ -20,64 +17,33 @@ describe('IntervalTimer', () => {
     test(...advanceTimes(1));
 
     describe(
-      ...checkInterval({
-        exact: true,
-        state: 'active',
-        callTimes: 1,
-      }),
+      ...checkInterval({ exact: true, state: 'active', callTimes: 1 }),
     );
 
     test(...advanceTimes(4));
 
-    describe(
-      ...checkInterval({
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 5 }));
 
     test(...pause());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 5 }));
 
     test(...advanceTimes(10));
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 5 }));
 
     test(...start());
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 5 }));
 
     test(...advanceTimes(5));
 
-    describe(
-      ...checkInterval({
-        callTimes: 10,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 10 }));
   });
 
   describe('#02 => custom values, exact = true', () => {
     const { checkInterval, advanceTimes, start, pause, advance } =
-      createIntervalTest({
-        id: 'custom',
-        interval: 2000,
-        exact: true,
-      });
+      createIntervalTest({ id: 'custom', interval: 2000, exact: true });
 
     describe(...checkInterval({ id: 'custom' }));
 
@@ -89,72 +55,35 @@ describe('IntervalTimer', () => {
 
     test(...start());
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 0,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 0 }));
 
     test(...advanceTimes());
 
-    describe(
-      ...checkInterval({
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 1 }));
 
     test(...advance(1000));
 
-    describe(
-      ...checkInterval({
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 1 }));
 
     test(...pause());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 1 }));
 
     test(...pause());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 1 }));
 
     test(...advanceTimes(10));
 
-    describe(
-      ...checkInterval({
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 1 }));
 
     test(...start());
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 1 }));
 
     test(...advanceTimes(4.5));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 5 }));
 
     //Pause
     test(...pause());
@@ -173,47 +102,24 @@ describe('IntervalTimer', () => {
 
     test(...advanceTimes(2));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 7,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 7 }));
 
     test(...advance(1000));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 7,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 7 }));
 
     test(...advance(500));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 7,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 7 }));
 
     test(...advance(500));
 
-    describe(
-      ...checkInterval({
-        callTimes: 8,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 8 }));
   });
 
   describe('#03 => custom values, exact = false', () => {
     const { checkInterval, advanceTimes, advance, start, pause } =
-      createIntervalTest({
-        id: 'custom',
-        interval: 2000,
-        exact: false,
-      });
+      createIntervalTest({ id: 'custom', interval: 2000, exact: false });
 
     describe(
       ...checkInterval({ interval: 2000, exact: false, id: 'custom' }),
@@ -225,116 +131,55 @@ describe('IntervalTimer', () => {
 
     test(...start());
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 0,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 0 }));
 
     test(...advanceTimes(1));
 
-    describe(
-      ...checkInterval({
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 1 }));
 
     test(...advance(1000));
 
-    describe(
-      ...checkInterval({
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 1 }));
 
     test(...pause());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 1 }));
 
     test(...pause());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 1 }));
 
     test(...advanceTimes(10));
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 1 }));
 
     test(...start());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 1 }));
 
     test(...advanceTimes(0.5));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 1,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 1 }));
 
     test(...advanceTimes(4));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 5 }));
 
     test(...pause());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-      }),
-    );
+    describe(...checkInterval({ state: 'paused' }));
 
     test(...start());
 
-    describe(
-      ...checkInterval({
-        state: 'paused',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'paused', callTimes: 5 }));
 
     test(...advance(0));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 5,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 5 }));
 
     test(...advanceTimes(2));
 
-    describe(
-      ...checkInterval({
-        callTimes: 7,
-      }),
-    );
+    describe(...checkInterval({ callTimes: 7 }));
   });
 
   describe('#04 => renew', () => {
@@ -390,9 +235,7 @@ describe('IntervalTimer', () => {
       pause,
       ticks,
       advanceIndex,
-    } = createIntervalTest({
-      id: 'dispose',
-    });
+    } = createIntervalTest({ id: 'dispose' });
 
     const disposedConfig = {
       interval: 100,
@@ -404,11 +247,7 @@ describe('IntervalTimer', () => {
     test(...start());
 
     describe(
-      ...checkInterval({
-        interval: 100,
-        id: 'dispose',
-        state: 'active',
-      }),
+      ...checkInterval({ interval: 100, id: 'dispose', state: 'active' }),
     );
 
     test(...advanceTimes(1));
@@ -417,12 +256,7 @@ describe('IntervalTimer', () => {
 
     test(...advanceTimes(9));
 
-    describe(
-      ...checkInterval({
-        state: 'active',
-        callTimes: 10,
-      }),
-    );
+    describe(...checkInterval({ state: 'active', callTimes: 10 }));
 
     test(...ticks(10));
 

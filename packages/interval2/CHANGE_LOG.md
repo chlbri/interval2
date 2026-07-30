@@ -10,6 +10,22 @@ evolution of the library.
 <details>
 <summary>
 
+## **[1.1.0] - 30/07/2026** => _14:02_
+
+</summary>
+
+- refactor: Reorganize codebase into a pnpm monorepo structure
+- feat(workspace): Add pnpm monorepo workspace configuration
+- update(deps): Add `@bemedev/sleep` dependency to `@bemedev/interval2`
+- update(ci): Update GitHub Actions workflow for NPM publishing from monorepo package
+
+</details>
+
+<br/>
+
+<details>
+<summary>
+
 ## **[1.0.1] - 26/05/2026** => _15:08_
 
 </summary>
