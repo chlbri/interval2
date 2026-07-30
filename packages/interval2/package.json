@@ -1,6 +1,6 @@
 {
   "name": "@bemedev/interval2",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A cancellable interval and timer library for JavaScript and TypeScript.",
   "type": "module",
   "main": "lib/index.js",
@@ -14,8 +14,7 @@
     "name": "chlbri",
     "url": "https://bemedev.vercel.app"
   },
-    "homepage": "https://github.com/chlbri/interval2/blob/master/packages/interval2/README.md",
-
+  "homepage": "https://github.com/chlbri/interval2/blob/master/packages/interval2/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/chlbri/interval2"
@@ -59,6 +58,7 @@
   "devDependencies": {
     "@bemedev/dev-utils": "^1.1.1",
     "rolldown": "^1.2.1",
+    "tslib": "^2.8.1",
     "typescript": "^7.0.2",
     "vitest": "4.1.10"
   },
