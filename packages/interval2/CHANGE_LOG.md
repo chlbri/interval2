@@ -10,6 +10,20 @@ evolution of the library.
 <details>
 <summary>
 
+## **[1.1.2] - 30/07/2026** => _14:28_
+
+</summary>
+
+- fix(package): Exclude `lib/node_modules` from published package files
+- chore(devcontainer): Remove devcontainer configuration
+
+</details>
+
+<br/>
+
+<details>
+<summary>
+
 ## **[1.1.1] - 30/07/2026** => _14:19_
 
 </summary>
