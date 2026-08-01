@@ -123,15 +123,18 @@ View changes log
 
 ### Version [1.1.4] - 30/07/2026 --> _14:41_
 
-- refactor: Extract `testInterval` helper from `interval.ts` into `interval.fixtures.ts`
+- refactor: Extract `testInterval` helper from `interval.ts` into
+  `interval.fixtures.ts`
 
 ### Version [1.1.3] - 30/07/2026 --> _14:37_
 
-- refactor(tsconfig): Standardize tsconfig configuration across monorepo packages
+- refactor(tsconfig): Standardize tsconfig configuration across monorepo
+  packages
 
 ### Version [1.1.2] - 30/07/2026 --> _14:34_
 
-- fix(package): Exclude lib/node_modules directory from published package files
+- fix(package): Exclude lib/node_modules directory from published package
+  files
 
 ### Version [1.1.1] - 30/07/2026 --> _14:30_
 

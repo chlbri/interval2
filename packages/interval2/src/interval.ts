@@ -127,4 +127,3 @@ export type { Interval2 };
  */
 
 export const createInterval = Interval2.create;
-
