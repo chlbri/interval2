@@ -76,7 +76,7 @@ importers:
         version: link:../../interval2
       '@bemedev/interval2-vitest':
         specifier: workspace:^
-        version: link:../../interval2-vitest
+        version: link:../../vitest
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -106,7 +106,7 @@ importers:
         specifier: 4.1.10
         version: 4.1.10(@types/node@26.1.2)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.0.14(@types/node@26.1.2)(esbuild@0.28.1)(tsx@4.23.9))
 
-  packages/interval2-vitest:
+  packages/vitest:
     dependencies:
       '@bemedev/interval2':
         specifier: workspace:^

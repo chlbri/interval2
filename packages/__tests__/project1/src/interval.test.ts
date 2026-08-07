@@ -1,5 +1,5 @@
 import { createInterval } from '@bemedev/interval2';
-import { createIntervalTests } from '@bemedev/interval2-vitest';
+import { createIntervalTests } from '../../../vitest/lib';
 import { sleep } from '@bemedev/interval2/helpers';
 import type { PauserListener } from '@bemedev/interval2/types';
 import { typeMock } from './fixtures';

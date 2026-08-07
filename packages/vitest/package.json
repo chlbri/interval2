@@ -25,7 +25,10 @@
   },
   "files": [
     "lib",
-    "!lib/node_modules"
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "CHANGE_LOG.md"
   ],
   "author": {
     "email": "bri_lvi@icloud.com",

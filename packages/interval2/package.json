@@ -8,7 +8,10 @@
   "module": "lib/index.js",
   "files": [
     "lib",
-    "!lib/node_modules"
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "CHANGE_LOG.md"
   ],
   "exports": {
     ".": {

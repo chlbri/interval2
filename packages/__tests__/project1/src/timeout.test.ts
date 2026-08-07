@@ -1,5 +1,5 @@
 import { createTimeout } from '@bemedev/interval2';
-import { createTimeoutTests } from '@bemedev/interval2-vitest';
+import { createTimeoutTests } from '../../../vitest/lib';
 import { beforeAll, describe, expect, test, vi } from 'vitest';
 
 describe('#01 => Timeout2', () => {
