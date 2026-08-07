@@ -33,6 +33,22 @@ yarn add @bemedev/interval2
 
 <br/>
 
+## Package Exports
+
+This package provides multiple export subpaths configured in
+`package.json`:
+
+| Export Subpath | Import Path                   | Description                                                                     |
+| -------------- | ----------------------------- | ------------------------------------------------------------------------------- |
+| `.`            | `@bemedev/interval2`          | Main entry point re-exporting core `createInterval` & `createTimeout` utilities |
+| `./interval`   | `@bemedev/interval2/interval` | Interval exports (`createInterval`, `createInterval2`, `Interval2`)             |
+| `./timeout`    | `@bemedev/interval2/timeout`  | Timeout exports (`createTimeout`, `createTimeout2`, `Timeout2`)                 |
+| `./timer`      | `@bemedev/interval2/timer`    | Abstract base class `Timer2`                                                    |
+| `./types`      | `@bemedev/interval2/types`    | All TypeScript type definitions                                                 |
+| `./helpers`    | `@bemedev/interval2/helpers`  | Re-exports sleep utilities from `@bemedev/sleep`                                |
+
+<br/>
+
 ## Usage
 
 ### Interval2
@@ -55,9 +71,9 @@ interval.start();
 interval.pause();
 
 // Renew the interval with new settings
-interval.renew({ interval: 2000 });
+const renewed = interval.renew({ interval: 2000 });
 
-//dispose the interval
+// Dispose the interval
 interval.dispose();
 ```
 
@@ -75,19 +91,108 @@ const timeout = createTimeout({
 });
 
 // Start the timeout
-await timeout.start();
+timeout.start();
 
 // Pause the timeout (preserves remaining time)
 timeout.pause();
 
-// Resume the timeout
-await timeout.start();
+// Resume the timeout with remaining duration
+timeout.resume();
 
-// Stop the timeout completely
-timeout.stop();
+// Dispose the timeout completely
+timeout.dispose();
 ```
 
 <br/>
+
+## Detailed API Reference
+
+### 1. `Interval2` (`createInterval` / `createInterval2` / `create`)
+
+Factory function `createInterval(options: IntervalParams)` instantiates a
+cancellable interval timer instance.
+
+#### Configuration Options (`IntervalParams`)
+
+- **`id`** (`string`, mandatory): Unique string identifier for the interval
+  instance.
+- **`callback`** (`Cb`, mandatory): Execution callback function
+  (`() => void`).
+- **`interval`** (`number`, optional): Duration in milliseconds between
+  ticks (defaults to `100`).
+- **`exact`** (`boolean`, optional): Flag for exact timing calculation
+  (defaults to `false`).
+- **`maxTicks`** (`number`, optional): Maximum tick count limit before
+  automatic pause (defaults to `10000`).
+- **`pauser`** (`PauserListener`, optional): Custom predicate function
+  `(state, ticks) => boolean` returning `true` to pause.
+
+#### Instance Methods & Properties
+
+- **`start()`**: Starts or resumes the interval timer. Transitions `state`
+  to `'active'`. Returns current `TimerState`.
+- **`pause()`**: Pauses the active interval timer. Transitions `state` to
+  `'paused'`. Returns current `TimerState`.
+- **`resume()`**: Alias for `start()`. Resumes the paused interval. Returns
+  current `TimerState`.
+- **`renew(params: RenewIntervalParams)`**: Returns a new `Interval2`
+  instance with updated/merged configuration options (`id` is required,
+  remaining options default to existing instance parameters).
+- **`subscribe(listener: IntervalListener)`**: Registers a state/tick
+  listener `(state: TimerState, ticks: number) => any`. Returns an
+  unsubscribe cleanup function `() => boolean`.
+- **`dispose()` / `[Symbol.dispose]()` / `[Symbol.asyncDispose]()`: Clears
+  active timer handles, resets timing state, sets `state = 'disposed'`, and
+  removes all subscribers.
+- **`get state()`**: Returns current lifecycle state
+  (`'idle' | 'active' | 'paused' | 'disposed'`).
+- **`get interval()`**: Returns configured interval duration in
+  milliseconds.
+- **`get exact()`**: Returns `true` if exact timing calculation is enabled.
+- **`get ticks()`**: Returns total executed tick count.
+- **`get maxTicks()`**: Returns maximum allowed tick limit before
+  auto-pausing.
+- **`get pauser()`**: Returns custom pauser predicate listener if defined.
+- **`get subscribed()`**: Returns `true` if active subscribers exist.
+
+---
+
+### 2. `Timeout2` (`createTimeout` / `createTimeout2` / `create`)
+
+Factory function `createTimeout(options: TimeoutParams)` instantiates a
+cancellable timeout timer instance.
+
+#### Configuration Options (`TimeoutParams`)
+
+- **`id`** (`string`, mandatory): Unique string identifier for the timeout
+  instance.
+- **`callback`** (`Cb`, mandatory): Execution callback function
+  (`() => void`).
+- **`timeout`** (`number`, optional): Duration in milliseconds before
+  timeout triggers (defaults to `1000`).
+
+#### Instance Methods & Properties
+
+- **`start()`**: Starts fresh or resumes the timeout timer. Uses remaining
+  time if resuming from pause. Transitions `state` to `'active'`. Returns
+  current `TimerState`.
+- **`pause()`**: Pauses the active timeout timer and calculates remaining
+  time. Transitions `state` to `'paused'`. Returns current `TimerState`.
+- **`resume()`**: Resumes the paused timeout using remaining time (calls
+  `start()`). Returns current `TimerState`.
+- **`renew(params: RenewTimeoutParams)`**: Returns a new `Timeout2`
+  instance with updated/merged configuration options (`id` is required,
+  remaining options default to existing instance parameters).
+- **`subscribe(listener: TimeoutListener)`**: Registers a state listener
+  `(state: TimerState) => any`. Returns an unsubscribe cleanup function
+  `() => boolean`.
+- **`dispose()` / `[Symbol.dispose]()` / `[Symbol.asyncDispose]()`: Clears
+  active timeout handle, resets remaining duration, sets
+  `state = 'disposed'`, and removes all subscribers.
+- **`get state()`**: Returns current lifecycle state
+  (`'idle' | 'active' | 'paused' | 'disposed'`).
+- **`get timeout()`**: Returns configured timeout duration in milliseconds.
+- **`get subscribed()`**: Returns `true` if active subscribers exist.
 
 ## Features
 
@@ -118,6 +223,12 @@ MIT
 <summary>
 View changes log
 </summary>
+
+### Version [1.2.1] - 07/08/2026 --> _01:08_
+
+- Add Detailed API Reference section and Package Exports table to
+  `README.md`
+- Update dependencies including `rolldown` `^1.2.3`
 
 ### Version [1.2.0] - 07/08/2026 --> _00:35_
 

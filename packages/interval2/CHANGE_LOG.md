@@ -8,6 +8,22 @@ evolution of the library.
 <details>
 <summary>
 
+## **[1.2.1] - 07/08/2026** => _01:08_
+
+</summary>
+
+- Add Detailed API Reference section and Package Exports table to
+  `README.md`
+- Update dependencies including `rolldown` `^1.2.3`
+- <u>Test coverage **_100%_**</u>
+
+</details>
+
+<br/>
+
+<details>
+<summary>
+
 ## **[1.2.0] - 07/08/2026** => _00:32_
 
 </summary>
