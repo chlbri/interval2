@@ -35,10 +35,10 @@
     "name": "chlbri",
     "url": "https://bemedev.vercel.app"
   },
-  "homepage": "https://github.com/chlbri/interval2/blob/master/packages/interval2-vitest/README.md",
+  "homepage": "https://github.com/chlbri/interval2/blob/master/packages/vitest/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chlbri/interval2"
+    "url": "https://github.com/chlbri/interval2/tree/master/packages/vitest"
   },
   "maintainers": [
     {
