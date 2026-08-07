@@ -11,12 +11,8 @@ export default defineConfig({
       enabled: true,
       reportsDirectory: '.coverage',
       provider: 'v8',
-      exclude: ['*.js', '*.cjs', '*.mjs'],
     },
 
-    projects: [
-      'packages/interval2/vitest.config.ts',
-      'packages/__tests__/project1/vitest.config.ts',
-    ],
+    projects: ['packages/__tests__/project1/vitest.config.ts'],
   },
 });

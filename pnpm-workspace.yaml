@@ -1,5 +1,6 @@
 packages:
   - 'packages/interval2'
+  - 'packages/interval2-vitest'
   - 'packages/__tests__/project1'
 
 allowBuilds:

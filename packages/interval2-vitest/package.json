@@ -1,51 +1,38 @@
 {
-  "name": "@bemedev/interval2",
+  "name": "@bemedev/interval2-vitest",
   "version": "1.2.0",
-  "description": "A cancellable interval and timer library for JavaScript and TypeScript.",
+  "description": "Vitest test utilities for @bemedev/interval2.",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    },
+    "./interval": {
+      "types": "./lib/interval.d.ts",
+      "import": "./lib/interval.js",
+      "require": "./lib/interval.cjs"
+    },
+    "./timeout": {
+      "types": "./lib/timeout.d.ts",
+      "import": "./lib/timeout.js",
+      "require": "./lib/timeout.cjs"
+    }
+  },
   "files": [
     "lib",
     "!lib/node_modules"
   ],
-  "exports": {
-    ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs",
-      "types": "./lib/index.d.ts"
-    },
-    "./interval": {
-      "import": "./lib/interval.js",
-      "require": "./lib/interval.cjs",
-      "types": "./lib/interval.d.ts"
-    },
-    "./timeout": {
-      "import": "./lib/timeout.js",
-      "require": "./lib/timeout.cjs",
-      "types": "./lib/timeout.d.ts"
-    },
-    "./timer": {
-      "import": "./lib/timer.js",
-      "require": "./lib/timer.cjs",
-      "types": "./lib/timer.d.ts"
-    },
-    "./types": {
-      "types": "./lib/types.types.d.ts"
-    },
-    "./helpers": {
-      "import": "./lib/helpers.js",
-      "require": "./lib/helpers.cjs",
-      "types": "./lib/helpers.d.ts"
-    }
-  },
   "author": {
     "email": "bri_lvi@icloud.com",
     "name": "chlbri",
     "url": "https://bemedev.vercel.app"
   },
-  "homepage": "https://github.com/chlbri/interval2/blob/master/packages/interval2/README.md",
+  "homepage": "https://github.com/chlbri/interval2/blob/master/packages/interval2-vitest/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/chlbri/interval2"
@@ -67,8 +54,9 @@
   "keywords": [
     "timer",
     "interval",
-    "cancellable",
-    "time"
+    "timeout",
+    "vitest",
+    "testing"
   ],
   "scripts": {
     "build": "pnpm run rm:lib && pnpm run rolldown",
@@ -84,7 +72,10 @@
     "rolldown": "rolldown -c"
   },
   "dependencies": {
-    "@bemedev/sleep": "^0.2.2"
+    "@bemedev/interval2": "workspace:^"
+  },
+  "peerDependencies": {
+    "vitest": ">=4.1.10"
   },
   "devDependencies": {
     "@bemedev/dev-utils": "^1.1.1",

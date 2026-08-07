@@ -5,6 +5,20 @@ made to the interval2 library. Each version includes a summary of new
 features, bug fixes, and other changes to help users understand the
 evolution of the library.
 
+<details>
+<summary>
+
+## **[1.2.0] - 07/08/2026** => _00:32_
+
+</summary>
+
+- Update JSDoc documentation across all TypeScript modules following
+  standard guidelines
+- Update test scripts in package.json for monorepo workspace compatibility
+- <u>Test coverage **_100%_**</u>
+
+</details>
+
 <br/>
 
 <details>

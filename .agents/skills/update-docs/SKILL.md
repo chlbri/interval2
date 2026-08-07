@@ -16,6 +16,7 @@ version bump in `package.json`.
 | ---------- | -------------------------------------------------------------------- |
 | `--force`  | Continue to Step 3 even when no meaningful changes are detected      |
 | `--readme` | In Step 3, deeply analyse all diffs and consider README improvements |
+| `--no-tests` | Skip all tests                                                       |
 
 ## Format Rules
 

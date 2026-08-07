@@ -119,7 +119,11 @@ MIT
 View changes log
 </summary>
 
-<br/>
+### Version [1.2.0] - 07/08/2026 --> _00:35_
+
+- Update JSDoc documentation across all TypeScript modules following
+  standard guidelines
+- Update test scripts in package.json for monorepo workspace compatibility
 
 ### Version [1.1.4] - 30/07/2026 --> _14:41_
 

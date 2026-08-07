@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "path": "libs/bemedev",
+  "files": [
+    "features/common/types",
+    "features/functions/types",
+    "globals/types"
+  ]
+}

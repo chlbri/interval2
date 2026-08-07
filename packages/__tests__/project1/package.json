@@ -13,6 +13,7 @@
   "devDependencies": {
     "@bemedev/dev-utils": "^1.1.1",
     "@bemedev/interval2": "workspace:^",
+    "@bemedev/interval2-vitest": "workspace:^",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   }

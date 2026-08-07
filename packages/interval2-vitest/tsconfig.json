@@ -23,11 +23,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "noEmit": true,
-    "declarationMap": true,
-    "paths": {
-      "#tester": ["./src/constructTests.ts"],
-      "#bemedev/*": ["./src/libs/bemedev/*"]
-    }
+    "declarationMap": true
   },
   "exclude": ["./rolldown.config.ts", "./vitest.config.ts"]
 }
