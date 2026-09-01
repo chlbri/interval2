@@ -78,14 +78,14 @@
     "@bemedev/interval2": "workspace:^"
   },
   "peerDependencies": {
-    "vitest": ">=4.1.10"
+    "vitest": ">=4.1.11"
   },
   "devDependencies": {
-    "@bemedev/dev-utils": "^1.1.1",
-    "rolldown": "^1.2.3",
+    "@bemedev/dev-utils": "^1.5.0",
+    "rolldown": "^1.2.6",
     "tslib": "^2.8.1",
     "typescript": "^7.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "size-limit": [
     {
